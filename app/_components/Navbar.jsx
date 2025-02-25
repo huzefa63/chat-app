@@ -1,5 +1,5 @@
 import Link from "next/link"
-import SignoutBtn from "./signoutBtn";
+import SignoutBtn from "@/app/_components/SignoutBtn";
 
 function Navbar() {
     return (

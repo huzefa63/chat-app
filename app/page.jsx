@@ -1,4 +1,4 @@
-import Chatbox from "./_components/Chatbox"
+import Chatbox from "@/app/_components/Chatbox"
 import { auth } from "@/lib/googleAuth";
 async function Page() {
   const res = await auth();
