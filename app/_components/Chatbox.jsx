@@ -12,7 +12,7 @@ function Chatbox({session}) {
         socket.current.on("newMessage", (newMessage) => {
             console.log(newMessage.photo)
           // setChat((messages) => [...messages, { message: newMessage }]);
-            setChat((messages) => [...messages, newMessage]);
+            setChat((messages) => [...messages, {message:newMessage]);
         });
         return ()=>{
             socket.current.disconnect();
@@ -24,7 +24,7 @@ function Chatbox({session}) {
             <div className="border h-[90%] overflow-auto p-5">
                 {chat.map((el,i)=>{
                     // return <Chat session={session} chat={el} key={i}/>
-                    return <Chat chat={el} key={i}/>
+                    return <Chat session={session} chat={el} key={i}/>
                 })}
             </div>
             <div>
