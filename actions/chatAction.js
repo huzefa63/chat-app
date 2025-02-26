@@ -9,12 +9,9 @@ export async function sendChat(data){
     // if(data.get('message')) {
     // socket.emit('newMessage',data.get('message'));
     // }
-    const session = await auth();
-    if(!session) return;
-    console.log(data.get('message'));
-    if(data.get('message')) {
-    socket.emit('newMessage',{name:session.user.name,image:session.user.image,message:data.get('message')});
-    }
+    
+    socket.emit('newMessage',{image:data.get('image'),name:data.get('name'),message:data.get('message'};
+
 
 }
 export async function logoutAction(){
