@@ -15,7 +15,8 @@ function Chatbox({session}) {
         socket.current = io(process.env.NEXT_PUBLIC_SOCKET_URL);
         socket.current.on("newMessage", (newMessage) => {
             console.log(newMessage)
-          setChat((messages) => [...messages, { message: newMessage }]);
+          // setChat((messages) => [...messages, { message: newMessage }]);
+            setChat((messages) => [...messages, newMessage]);
         });
         return ()=>{
             socket.current.disconnect();
