@@ -23,7 +23,8 @@ function Chatbox({session}) {
         <div className="bg-white h-[30rem] w-[80%] flex flex-col justify-between">
             <div className="border h-[90%] overflow-auto p-5">
                 {chat.map((el,i)=>{
-                    return <Chat session={session} chat={el} key={i}/>
+                    // return <Chat session={session} chat={el} key={i}/>
+                    return <Chat chat={el} key={i}/>
                 })}
             </div>
             <div>
