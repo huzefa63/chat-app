@@ -17,6 +17,8 @@ function ChatInput({session}) {
             required
             disabled={!session?.user}
           />
+          <input type="hidden" name="image" value={session?.user?.image}/>
+          <input type="hidden" name="name" value={session?.user?.name}/>
           <button className="hover:bg-black rounded-full p-1 transition-all duration-[0.2s] absolute right-4 top-1/2 -translate-y-1/2">
             <ArrowUpIcon className="size-6 text-white  " />
           </button>
