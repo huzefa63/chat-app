@@ -13,7 +13,7 @@ export async function sendChat(data){
     if(!session) return;
     console.log(data.get('message'));
     if(data.get('message')) {
-    socket.emit('newMessage',{name:session.user.name,photo:session.user.image,message:data.get('message')});
+    socket.emit('newMessage',{name:session.user.name,image:session.user.image,message:data.get('message')});
     }
 
 }
