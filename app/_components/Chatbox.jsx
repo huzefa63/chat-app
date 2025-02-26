@@ -7,6 +7,9 @@ function Chatbox({session}) {
     let socket = useRef(null);
     const [chat,setChat] = useState([]);
     useEffect(function(){
+        console.log(process.env.NEXT_PUBLIC_SOCKET_URL);
+        console.log(process.env.SOCKET_URL);
+        
         console.log('connected to socket')
         socket.current = io(process.env.NEXT_PUBLIC_SOCKET_URL);
         socket.current.on("newMessage", (newMessage) => {
