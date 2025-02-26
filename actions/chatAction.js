@@ -10,7 +10,7 @@ export async function sendChat(data){
     // socket.emit('newMessage',data.get('message'));
     // }
     
-    socket.emit('newMessage',{image:data.get('image'),name:data.get('name'),message:data.get('message'};
+    socket.emit('newMessage',{image:data.get('image'),name:data.get('name'),message:data.get('message')};
 
 
 }
