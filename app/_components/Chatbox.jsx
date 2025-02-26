@@ -12,13 +12,26 @@ function Chatbox({session}) {
         socket.current.on("newMessage", (newMessage) => {
             console.log(newMessage.photo)
           // setChat((messages) => [...messages, { message: newMessage }]);
-            setChat((messages) => [...messages, {message:newMessage}]);
+            setChat((messages) => [...messages,newMessage]);
         });
         return ()=>{
             socket.current.disconnect();
             
         }
     },[])
+    // useEffect(function(){
+    //     // socket.current = io('https://chat-api-cfe5.onrender.com');
+    //     socket.current = io(process.env.NEXT_PUBLIC_SOCKET_URL);
+    //     socket.current.on("newMessage", (newMessage) => {
+    //         console.log(newMessage.photo)
+    //       // setChat((messages) => [...messages, { message: newMessage }]);
+    //         setChat((messages) => [...messages, {message:newMessage}]);
+    //     });
+    //     return ()=>{
+    //         socket.current.disconnect();
+            
+    //     }
+    // },[])
     return (
         <div className="bg-white h-[30rem] w-[80%] flex flex-col justify-between">
             <div className="border h-[90%] overflow-auto p-5">
