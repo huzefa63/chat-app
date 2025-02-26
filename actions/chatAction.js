@@ -6,11 +6,12 @@ const socket = io(process.env.SOCKET_URL);
 
 export async function sendChat(data) {
     // Emit the newMessage event with the correct object format
-    socket.emit('newMessage', {
-        image: data.get('image'),
-        name: data.get('name'),
-        message: data.get('message'),
-    });
+    socket.emit('newMessage', data.get('message');
+    // socket.emit('newMessage', {
+    //     image: data.get('image'),
+    //     name: data.get('name'),
+    //     message: data.get('message'),
+    // });
 }
 
 export async function logoutAction() {
