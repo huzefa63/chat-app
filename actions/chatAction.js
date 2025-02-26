@@ -11,6 +11,7 @@ export async function sendChat(data){
 
 }
 export async function logoutAction(){
+    console.log('env: '+' '+process.env.SOCKET_URL)
     await signOut();
 }
 export async function logInAction(){
