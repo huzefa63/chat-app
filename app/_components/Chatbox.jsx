@@ -8,7 +8,7 @@ function Chatbox({session}) {
     const [chat,setChat] = useState([]);
     useEffect(function(){
         console.log('connected to socket')
-        socket.current = io('https://chat-api-cfe5.onrender.com');
+        socket.current = io(process.env.NEXT_PUBLIC_SOCKET_URL);
         socket.current.on("newMessage", (newMessage) => {
             console.log(newMessage)
           setChat((messages) => [...messages, { message: newMessage }]);
