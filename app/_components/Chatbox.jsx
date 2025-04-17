@@ -2,25 +2,19 @@
 import { useEffect, useRef, useState } from "react"
 import Chat from "./Chat"
 import ChatInput from "./ChatInput"
+
+import { getSession } from 'next-auth/react'
 import { io } from "socket.io-client"
 function Chatbox({session}) {
     console.log(session);
+     
+    
     let socket = useRef(null);
     const [chat,setChat] = useState([]);
-    // useEffect(function(){
-    //     // socket.current = io('https://chat-api-cfe5.onrender.com');
-    //     socket.current = io(process.env.NEXT_PUBLIC_SOCKET_URL);
-    //     socket.current.on("newMessage", (newMessage) => {
-    //         console.log(newMessage.photo)
-    //       // setChat((messages) => [...messages, { message: newMessage }]);
-    //         setChat((messages) => [...messages,newMessage]);
-    //     });
-    //     return ()=>{
-    //         socket.current.disconnect();
-            
-    //     }
-    // },[])
-    useEffect(function(){
+    
+    useEffect(async function(){
+        const sessionTwo = await getSession();
+        console.log('session2: ',sessionTwo);
         // socket.current = io('https://chat-api-cfe5.onrender.com');
         socket.current = io(process.env.NEXT_PUBLIC_SOCKET_URL);
         socket.current.on("newMessage", (newMessage) => {
