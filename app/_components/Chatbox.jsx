@@ -4,6 +4,7 @@ import Chat from "./Chat"
 import ChatInput from "./ChatInput"
 import { io } from "socket.io-client"
 function Chatbox({session}) {
+    console.log(session);
     let socket = useRef(null);
     const [chat,setChat] = useState([]);
     // useEffect(function(){
