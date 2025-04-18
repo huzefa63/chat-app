@@ -3,11 +3,26 @@ import { useEffect, useRef, useState } from "react"
 import Chat from "./Chat"
 import ChatInput from "./ChatInput"
 
+// Sending GET request from the client side (browser)
+
+
+
 import { getSession } from 'next-auth/react'
 import { io } from "socket.io-client"
 function Chatbox({session}) {
     console.log(session);
-     
+     async function fetchToken() {
+  try {
+    const response = await fetch('/api/auth'); // Path relative to your app
+    const data = await response.json();
+    
+    console.log('Token Data:', data);
+  } catch (error) {
+    console.error('Error fetching token:', error);
+  }
+}
+
+
     
     let socket = useRef(null);
     const [chat,setChat] = useState([]);
@@ -29,6 +44,7 @@ function Chatbox({session}) {
     },[])
     return (
         <div className="bg-white h-[30rem] w-[80%] flex flex-col justify-between">
+            <button onClick={fetchToken}>click here now</button>
             <div className="border h-[90%] overflow-auto p-5">
                 {chat.map((el,i)=>{
                     // return <Chat session={session} chat={el} key={i}/>
