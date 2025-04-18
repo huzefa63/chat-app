@@ -7,7 +7,7 @@ export async function GET(request) {
 
   console.log("JSON Web Token", token);
 
-  return new Response(JSON.stringify(token), {
+  return new Response(JSON.stringify({message:"hello"}), {
     status: 200,
     headers: {
       "Content-Type": "application/json",
